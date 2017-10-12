@@ -27,6 +27,16 @@ moduleinterface BaseProtocol extends IBaseApplLayer
 {
 
     parameters:
+        double attackStart @unit("s");
+        int attackingNode;
+        double maliciousSpeed @unit("kmph");
+        double shiftX @unit("m");
+        bool fakeSpeed;
+        bool fakeAcc;
+        bool fakePos;
+        double maliciousAcc @uni("mpss");
+        int attackerType;
+
         volatile double beaconingInterval @unit(seconds);// = default(0.1 seconds);
         //priority (AC) for the messages. 0 = AC_BK, 3 = AC_VO
         int priority;// = default(0);

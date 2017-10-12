@@ -25,6 +25,8 @@ simple SimplePlatooningApp like BaseApp
         int headerLength @unit("bit") = default(0 bit);
         //duration of simulation
         double simulationDuration @unit("s");
+        double attackStart @unit("s");
+        int attackerType;
 
         @display("i=block/app2");
         @class(SimplePlatooningApp);

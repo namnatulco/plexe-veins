@@ -24,6 +24,9 @@ moduleinterface BaseApp extends IBaseApplLayer
     parameters:
         //duration of simulation
         double simulationDuration @unit("s");
+	
+        double attackStart @unit("s");
+        int attackerType;
 
         @display("i=block/app2");
         @class(BaseApp);

@@ -31,6 +31,15 @@
 
 class BaseProtocol;
 
+enum ATTACKER {
+	NONE=0,
+	JAM=1,
+	POS=2,
+	SPEED=3,
+	ACCEL=4,
+	CONSISTENT=5
+};
+
 class BaseApp : public BaseApplLayer
 {
 
@@ -38,6 +47,7 @@ class BaseApp : public BaseApplLayer
 
 		virtual void initialize(int stage);
 		virtual void finish();
+		double attackStart;
 
 	protected:
 		virtual void onBeacon(WaveShortMessage* wsm);
@@ -82,6 +92,8 @@ class BaseApp : public BaseApplLayer
 
 		//messages for scheduleAt
 		cMessage *recordData;
+
+		ATTACKER attackerType;
 
 	public:
 		BaseApp() {

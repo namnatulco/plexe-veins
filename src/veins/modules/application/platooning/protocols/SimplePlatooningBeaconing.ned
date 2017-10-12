@@ -26,6 +26,17 @@ simple SimplePlatooningBeaconing like BaseProtocol
 {
 
     parameters:
+        double attackStart @unit("s");
+        int attackingNode;
+        double maliciousSpeed @unit("kmph");
+        double shiftX @unit("m");
+        double maliciousAcc @unit("mpss");
+        bool fakeSpeed;
+        bool fakeAcc;
+        bool fakePos;
+        int attackerType;
+
+
         volatile double beaconingInterval @unit(seconds);
         //priority (AC) for the messages. 0 = AC_BK, 3 = AC_VO
         int priority;// = default(0);

@@ -62,6 +62,15 @@ class BaseProtocol : public BaseApplLayer {
 
 	protected:
 
+		double attackStart;
+		int attackingNode;
+		double maliciousSpeed;
+		double maliciousAcc;
+		double shiftX;
+		bool fakeSpeed;
+		bool fakePos;
+		bool fakeAcc;
+
 		//determines position and role of each vehicle
 		BasePositionHelper *positionHelper;
 

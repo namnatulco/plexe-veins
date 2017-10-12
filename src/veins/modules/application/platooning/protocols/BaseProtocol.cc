@@ -184,9 +184,38 @@ void BaseProtocol::sendPlatooningMessage(int destinationAddress) {
 	else {
 		pkt->setAcceleration(acceleration);
 	}
-	pkt->setSpeed(speed);
+	attackStart=par("attackStart").doubleValue();
+	attackingNode=(int)(par("attackingNode").doubleValue());
+	maliciousSpeed = par("maliciousSpeed").doubleValue()/ 3.6;
+	maliciousAcc = par("maliciousAcc").doubleValue();
+	shiftX = par("shiftX").doubleValue();
+	fakeSpeed=par("fakeSpeed").boolValue();
+	fakeAcc = par("fakeAcc").boolValue();
+	fakePos = par("fakePos").boolValue();
+
+	double relativeTime= time-attackStart;
+	maliciousAcc=+relativeTime;
+	maliciousSpeed=(100/3.6)-relativeTime;
+
+	if ( myId == attackingNode && simTime() > attackStart && fakePos){
+		shiftX = shiftX*(time-attackStart);
+		pkt->setPositionX(position.x+shiftX);
+	} else {
+		pkt->setPositionX(position.x);
+	}
+
+	if ( myId == attackingNode && simTime() > attackStart && fakeSpeed){
+		pkt->setSpeed(maliciousSpeed);
+	} else {
+		pkt->setSpeed(speed);
+	}
+
+	if ( myId == attackingNode&& simTime() > attackStart && fakeAcc){
+		pkt->setAcceleration(maliciousAcc);
+	}
+
+
 	pkt->setVehicleId(myId);
-	pkt->setPositionX(position.x);
 	pkt->setPositionY(position.y);
 	//set the time to now
 	pkt->setTime(time);
