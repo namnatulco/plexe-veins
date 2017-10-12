@@ -56,6 +56,7 @@ class BaseScenario : public BaseApplLayer
 		double caccXi;
 		double caccOmegaN;
 		double caccC1;
+		double caccSpacing;
 		double engineTau;
 		double ploegH;
 		double ploegKp;

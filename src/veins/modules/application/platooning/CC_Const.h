@@ -78,6 +78,7 @@ struct VEHICLE_DATA {
 #define CC_SET_CACC_OMEGA_N              0x05    //omega_n
 #define CC_SET_CACC_C1                   0x06    //C1
 #define CC_SET_ENGINE_TAU                0x07    //engine time constant
+#define CC_SET_CACC_SPACING              0x08    //headway in meters
 
 #define CC_SET_PLOEG_H                   0x20    //time headway of ploeg's CACC
 #define CC_SET_PLOEG_KP                  0x21    //kp parameter of ploeg's CACC

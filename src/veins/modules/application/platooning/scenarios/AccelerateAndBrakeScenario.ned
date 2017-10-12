@@ -46,6 +46,7 @@ simple AccelerateAndBrakeScenario like BaseScenario
         double caccXi = default(1);
         double caccOmegaN @unit("Hz") = default(0.2Hz);
         double caccC1 = default(0.5);
+        double caccSpacing @unit("m");
         double engineTau @unit("s") = default(0.5s);
         double ploegH @unit("s") = default(0.5s);
         double ploegKp = default(0.2);
