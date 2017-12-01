@@ -193,10 +193,6 @@ void BaseProtocol::sendPlatooningMessage(int destinationAddress) {
 	fakeAcc = par("fakeAcc").boolValue();
 	fakePos = par("fakePos").boolValue();
 
-	double relativeTime= time-attackStart;
-	maliciousAcc=+relativeTime;
-	maliciousSpeed=(100/3.6)-relativeTime;
-
 	if ( myId == attackingNode && simTime() > attackStart && fakePos){
 		shiftX = shiftX*(time-attackStart);
 		pkt->setPositionX(position.x+shiftX);

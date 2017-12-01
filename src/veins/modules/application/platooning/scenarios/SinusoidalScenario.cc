@@ -65,11 +65,10 @@ void SinusoidalScenario::finish() {
 void SinusoidalScenario::handleSelfMsg(cMessage *msg) {
 	BaseScenario::handleSelfMsg(msg);
 	if (msg == changeSpeed) {
-		traciVehicle->setCruiseControlDesiredSpeed(
-		    leaderSpeed +
+		double newSpeed = leaderSpeed +
 		    oscillationAmplitude *
-		    sin(2 * M_PI * (simTime() - startOscillating).dbl() * leaderOscillationFrequency)
-		);
+		    sin(2 * M_PI * (simTime() - startOscillating).dbl() * leaderOscillationFrequency);
+		traciVehicle->setCruiseControlDesiredSpeed(newSpeed);
 		scheduleAt(simTime() + SimTime(0.1), changeSpeed);
 	}
 }
